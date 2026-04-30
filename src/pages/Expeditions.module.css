@@ -1,0 +1,250 @@
+.main {
+  min-height: 100vh;
+  padding-top: 5rem;
+}
+
+.header {
+  position: relative;
+  padding: 6rem 4rem 5rem;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.headerBg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 0% 100%, rgba(0,201,177,0.08) 0%, transparent 60%);
+}
+
+.headerContent {
+  position: relative;
+  max-width: 800px;
+}
+
+.eyebrow {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 10vw, 9rem);
+  letter-spacing: 0.03em;
+  line-height: 0.9;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.subtitle {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--text-mid);
+  line-height: 1.65;
+  max-width: 560px;
+}
+
+.list {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  margin-bottom: 2rem;
+  text-decoration: none;
+  transition: border-color 0.3s;
+}
+
+.card:nth-child(even) {
+  direction: rtl;
+}
+
+.card:nth-child(even) > * {
+  direction: ltr;
+}
+
+.card:hover {
+  border-color: var(--border-accent);
+}
+
+.cardImage {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.cardImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.65);
+  transition: transform 0.7s ease, filter 0.4s;
+}
+
+.card:hover .cardImage img {
+  transform: scale(1.04);
+  filter: saturate(1);
+}
+
+.cardImageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, transparent 60%, rgba(8,13,13,0.5));
+}
+
+.cardYear {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+
+.cardBody {
+  padding: 2.5rem;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.cardTags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid var(--border-accent);
+  color: var(--accent);
+  padding: 0.2rem 0.6rem;
+}
+
+.cardTitle {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.cardSubtitle {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.cardMeta {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.metaLabel {
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.metaValue {
+  font-size: 0.85rem;
+  color: var(--text);
+  font-weight: 400;
+}
+
+.cardSignificance {
+  font-size: 0.87rem;
+  line-height: 1.75;
+  color: var(--text-mid);
+}
+
+.cardReadMore {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: 0.5rem;
+  transition: opacity 0.2s;
+}
+
+.card:hover .cardReadMore {
+  opacity: 0.7;
+}
+
+.backHome {
+  text-align: center;
+  padding: 2rem 4rem 5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+
+.backHome a {
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.backHome a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 4rem 1.5rem 3rem;
+  }
+
+  .list {
+    padding: 3rem 1.5rem;
+  }
+
+  .card {
+    grid-template-columns: 1fr;
+  }
+
+  .card:nth-child(even) {
+    direction: ltr;
+  }
+
+  .cardBody {
+    padding: 1.75rem;
+  }
+
+  .cardMeta {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .backHome {
+    padding: 1.5rem 1.5rem 3rem;
+  }
+}
