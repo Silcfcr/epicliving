@@ -47,14 +47,8 @@ Open [src/data/expeditions.js](src/data/expeditions.js) and add an entry to the 
 
 The site is statically built and can be deployed anywhere that serves a SPA (Netlify, Vercel, GitHub Pages with `--history-api-fallback`).
 
-For **GitHub Pages**, set the `base` option in [vite.config.js](vite.config.js) to your repo name:
-
-```js
-export default defineConfig({
-  plugins: [react()],
-  base: '/your-github-repo-name/',
-})
-```
+Deployed to GitHub Pages via the workflow in [.github/workflows/deploy.yml](.github/workflows/deploy.yml).
+Every push to `main` triggers a build and redeploy automatically.
 
 ---
 
