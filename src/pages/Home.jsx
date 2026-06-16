@@ -22,9 +22,19 @@ export default function Home() {
   const [storyRef, storyInView] = useInView(0.1)
   const [statsRef, statsInView] = useInView(0.2)
   const [disciplinesRef, disciplinesInView] = useInView(0.1)
+  const [archiveRef, archiveInView] = useInView(0.1)
   const [expeditionsRef, expeditionsInView] = useInView(0.1)
   const [credentialsRef, credentialsInView] = useInView(0.2)
   const [contactRef, contactInView] = useInView(0.2)
+
+  const archivePhotos = [
+    { src: asset('pictures/meCanyoning.jpg'), caption: 'Canyoning' },
+    { src: asset('pictures/meWithGreatViewAndParaglidinPackedEquipment.jpg'), caption: 'Paragliding — packed and ready' },
+    { src: asset('pictures/meInCostaRicaHighestPeak.jpg'), caption: "Costa Rica's highest peak" },
+    { src: asset('pictures/meWithMyFirstPodHarnessParagliding.JPG'), caption: 'First pod harness · Paragliding' },
+    { src: asset("pictures/meWithSantiago'sWaySign.JPG"), caption: 'Way of St. James · 2019' },
+    { src: asset('pictures/meWithMyKiteSurf.jpg'), caption: 'Kitesurfing · Red Sea' },
+  ]
 
   return (
     <main>
@@ -171,6 +181,22 @@ export default function Home() {
                 <p className={styles.disciplineCredential}>{d.credential}</p>
                 <p className={styles.disciplineDetail}>{d.detail}</p>
               </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── ARCHIVE ── */}
+      <section className={`${styles.archiveSection} ${archiveInView ? styles.visible : ''}`} ref={archiveRef}>
+        <div className={styles.sectionHeader}>
+          <div className={styles.sectionLabel}>Archives</div>
+          <h2 className={styles.sectionTitle}>More from the field.</h2>
+        </div>
+        <div className={styles.archiveStrip}>
+          {archivePhotos.map((photo, i) => (
+            <div key={i} className={styles.archiveItem} style={{ animationDelay: `${i * 0.06}s` }}>
+              <img src={photo.src} alt={photo.caption} loading="lazy" />
+              <span className={styles.archiveCaption}>{photo.caption}</span>
             </div>
           ))}
         </div>
